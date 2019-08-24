@@ -1,14 +1,14 @@
-import express from 'express'
-import mongoose from 'mongoose'
-import bodyParser from 'body-parser'
-import { mongoURI } from './config/mongo-connection'
+const express = require('express')
+const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
+const mongoURI = require('./config/mongo-connection')
 
 const app = express()
 
 app.use(bodyParser.json())
 
 mongoose
-    .connect(mongoURI)
+    .connect(mongoURI,{useNewUrlParser:true})
     .then(() => console.log('MongoDB connected.'))
     .catch(err => console.log(err))
 

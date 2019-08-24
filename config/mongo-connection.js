@@ -1,7 +1,5 @@
-import { user, password } from "./keys"
+const keys = require("./keys")
 
-const uri = `mongodb+srv://${user}:${password}@merntodo-nub0f.mongodb.net/test?retryWrites=true&w=majority`
+const uri = `mongodb+srv://${keys.user}:${keys.password}@merntodo-nub0f.mongodb.net/test?retryWrites=true&w=majority`
 
-module.exports = {
-    mongoURI: uri
-}
+module.exports =  uri
