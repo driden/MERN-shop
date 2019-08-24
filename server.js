@@ -5,12 +5,16 @@ const mongoURI = require('./config/mongo-connection')
 
 const app = express()
 
+const items = require('./routes/api/items')
+
 app.use(bodyParser.json())
 
 mongoose
-    .connect(mongoURI,{useNewUrlParser:true})
+    .connect(mongoURI, { useNewUrlParser: true })
     .then(() => console.log('MongoDB connected.'))
     .catch(err => console.log(err))
+
+app.use('/api/items', items)
 
 const port = process.env.PORT || 5000
 
